@@ -123,7 +123,7 @@ Despite this apparent separation, PERMANOVA indicated that diet explained 25% of
 
 Differential abundance analysis using ANCOM-BC2 identified no statistically significant species after Benjamini–Hochberg correction, consistent with the limited statistical power associated with the small sample size. The top 20 species ranked by lowest p-values are shown in [Figure 4](figures/da.png).
 
-Several species exhibited higher log fold changes in vegan samples, including _Sutterella wadsworthensis_, _Ruminococcus bicirculans_, _Butyrivibrio crossotus_, and multiple _Alistipes_ species. Conversely, _Coprococcus eutactus_, _[Ruminococcus] lactaris_, and A_listipes onderdonkii_ showed higher log fold changes in omnivore samples.
+Several species exhibited higher log fold changes in vegan samples, including _Sutterella wadsworthensis_, _Ruminococcus bicirculans_, _Butyrivibrio crossotus_, and multiple _Alistipes_ species. Conversely, _Coprococcus eutactus_, _[Ruminococcus] lactaris_, and _Alistipes onderdonkii_ showed higher log fold changes in omnivore samples.
 
 Notably, _Segatella copri_ was not among the top 20 differentially abundant species, suggesting that although it appeared visually prominent in some samples, its abundance differences between dietary groups were not consistent enough to meet the threshold for inclusion after filtering and statistical testing.
 
