@@ -129,11 +129,58 @@ Notably, _Segatella copri_ was not among the top 20 differentially abundant spec
 
 
 ## Discussion
+### Taxanomic Abundance
+[Figure 1](figures/abundance.png) shows that _Segatella copri_ (formerly _Prevotella copri_) was abundant in one omnivore (SRR8146936) and one vegan sample (SRR8146968), while largely absent in the remaining samples. This pattern does not support the initial hypothesis that _S. copri_ would be enriched in vegans due to its association with plant-rich diets (De Filippis et al., 2019). Its inconsistent distribution suggests strong inter-individual variability rather than a clear diet-driven effect, consistent with evidence that _S. copri_ exhibits strain-level diversity with context-dependent metabolic effects (De Filippis et al., 2019). While it can metabolize dietary fibre into short-chain fatty acids (SCFAs) with potential metabolic benefits (Zang et al., 2024), it has also been associated with adverse metabolic outcomes including increased fasting glucose and inflammatory markers in animal models (Gong et al., 2024). This highlights its complex and controversial role in host health, and suggests that strain-level rather than species-level analysis may be necessary to resolve its true dietary and metabolic associations.
 
+In contrast, _Akkermansia muciniphila_ dominated one vegan sample (SRR8146963), while being largely absent in the remaining samples. This species is widely associated with beneficial metabolic effects including improved gut barrier function and reduced inflammation, and is inversely correlated with obesity and metabolic disorders (Rodrigues et al., 2022; Sakkas et al., 2020). Its high abundance in a vegan sample is biologically plausible as fibre- and polyphenol-rich diets promote microbial communities associated with metabolic health (Sakkas et al., 2020). However, its absence in the remaining vegan samples highlights considerable inter-individual variation within the same dietary group, likely driven by host-specific factors such as genetics and prior antibiotic use in addition to diet (Rodrigues et al., 2022).
 
+### Alpha & Beta Diversity
+Alpha diversity analysis ([Figure 2](figures/alpha.png)) showed higher median richness and greater variability in omnivores compared to vegans, although these differences were not statistically significant. This trend is consistent with Fackelmann et al. (2025), who reported lower observed species richness in vegans across multiple cohorts, and may reflect the broader range of dietary substrates in omnivorous diets supporting more heterogeneous microbial communities, whereas vegan diets may promote more specialised fibre-degrading taxa.
+
+Beta diversity analysis ([Figure 3](figures/beta.png)) further suggested a diet-associated effect. PCoA of Bray–Curtis dissimilarity showed partial separation between groups, with diet explaining 25% of the variation (PERMANOVA R² = 0.25, p = 0.4). Although not statistically significant, this effect size is consistent with prior studies demonstrating diet as a major driver of microbiome composition (De Filippis et al., 2019), and likely reflects limited statistical power rather than a true absence of effect.
+
+### Differential Abundance
+Differential abundance analysis ([Figure 4](figures/da.png)) identified no statistically significant species after Benjamini-Hochberg correction; however, several biologically relevant trends were observed. _Sutterella wadsworthensis_ showed the highest log fold change in vegans. Although its role remains unclear, it is commonly detected in healthy individuals but has also been linked to metabolic and inflammatory conditions (Hiippala et al., 2016; Kaakoush, 2020), making its interpretation context-dependent. 
+
+Conversely, _Coprococcus eutactus_, a butyrate-producing species important for gut barrier integrity and anti-inflammatory activity (Notting et al., 2023), was more abundant in omnivores. This is somewhat unexpected given the higher fibre intake typical of vegan diets and may reflect individual variation rather than a consistent dietary effect. Notably, several other butyrate-producing species including _Butyrivibrio crossotus_, _Ruminococcus bicirculans_, and _Intestinimonas butyriciproducens_ showed higher log fold changes in vegans. Fermentable dietary fibre serves as a primary substrate for intestinal bacteria producing SCFAs including butyrate, which plays a key role in immunoregulation, maintenance of epithelial barrier function, and prevention of inflammatory conditions (Sakkas et al., 2020). This suggests a potential shift toward increased SCFA production in vegans, consistent with the known effects of fibre-rich diets on gut microbiome function. Although not statistically significant, the overall directional trends align with established links between diet, microbial metabolism, and host health.
+
+### Limitations
+The primary limitation of this study is the small sample size (n = 3 per group), which severely limited statistical power across all analyses and constrained the number of permutations achievable in PERMANOVA. Additionally, the use of a reduced Kraken2 standard 8GB database, rather than the full database, may have limited taxonomic resolution and resulted in some taxa being missed or misclassified. Future studies with larger cohorts, more comprehensive reference databases, and strain-level analyses are needed to better resolve diet-associated microbial patterns and clarify the controversial role of taxa such as _S. copri_.
 
 
 ## References
+Cassol, I., Ibañez, M., & Bustamante, J. P. (2025). Key features and guidelines for the application of microbial alpha diversity metrics. Scientific Reports, 15(1), 622. https://doi.org/10.1038/s41598-024-77864-y 
 
+Chen, S., Zhou, Y., Chen, Y., & Gu, J. (2018). fastp: An ultra-fast all-in-one FASTQ preprocessor. Bioinformatics, 34(17), i884–i890. https://doi.org/10.1093/bioinformatics/bty560 
 
-Wick, R. R., P Howden, B., & P Stinear, T. (2025b, August 28). Autocycler: long-read consensus assembly for bacterial genomes. Oxford Academic. https://academic.oup.com/bioinformatics/article/41/9/btaf474/8242761
+Fackelmann, G., Manghi, P., Carlino, N., Heidrich, V., Piccinno, G., Ricci, L., Piperni, E., Arrè, A., Bakker, E., Creedon, A. C., Francis, L., Capdevila Pujol, J., Davies, R., Wolf, J., Bermingham, K. M., Berry, S. E., Spector, T. D., Asnicar, F., & Segata, N. (2025). Gut microbiome signatures of vegan, vegetarian and omnivore diets and associated health outcomes across 21,561 individuals. Nature Microbiology, 10(1), 41–52. https://doi.org/10.1038/s41564-024-01870-z 
+
+Filippis, F. D., Pasolli, E., Tett, A., Tarallo, S., Naccarati, A., Angelis, M. D., Neviani, E., Cocolin, L., Gobbetti, M., Segata, N., & Ercolini, D. (2019). Distinct Genetic and Functional Traits of Human Intestinal Prevotella copri Strains Are Associated with Different Habitual Diets. Cell Host & Microbe, 25(3), 444-453.e3. https://doi.org/10.1016/j.chom.2019.01.004 
+
+Gong, J., Zhang, Q., Hu, R., Yang, X., Fang, C., Yao, L., Lv, J., Wang, L., Shi, M., Zhang, W., Ma, S., Xiang, H., Zhang, H., Hou, D.-X., Yin, Y., He, J., Peng, L., & Wu, S. (2024). Effects of Prevotella copri on insulin, gut microbiota and bile acids. Gut Microbes, 16(1), 2340487. https://doi.org/10.1080/19490976.2024.2340487 
+
+Hiippala, K., Kainulainen, V., Kalliomäki, M., Arkkila, P., & Satokari, R. (2016). Mucosal Prevalence and Interactions with the Epithelium Indicate Commensalism of Sutterella spp. Frontiers in Microbiology, 7. https://doi.org/10.3389/fmicb.2016.01706 
+
+Kaakoush, N. O. (2020). Sutterella Species, IgA-degrading Bacteria in Ulcerative Colitis. Trends in Microbiology, 28(7), 519–522. https://doi.org/10.1016/j.tim.2020.02.018 
+
+Lin, H., & Peddada, S. D. (2020). Analysis of compositions of microbiomes with bias correction. Nature Communications, 11(1), 3514. https://doi.org/10.1038/s41467-020-17041-7 
+
+Lu, J., Breitwieser, F. P., Thielen, P., & Salzberg, S. L. (2017). Bracken: Estimating species abundance in metagenomics data. PeerJ. Computer Science, 3, e104. https://doi.org/10.7717/peerj-cs.104 
+
+Nearing, J. T., Douglas, G. M., Hayes, M. G., MacDonald, J., Desai, D. K., Allward, N., Jones, C. M. A., Wright, R. J., Dhanani, A. S., Comeau, A. M., & Langille, M. G. I. (2022). Microbiome differential abundance methods produce different results across 38 datasets. Nature Communications, 13(1), 342. https://doi.org/10.1038/s41467-022-28034-z 
+
+Notting, F., Pirovano, W., Sybesma, W., & Kort, R. (2023). The butyrate-producing and spore-forming bacterial genus Coprococcus as a potential biomarker for neurological disorders. Gut Microbiome, 4, e16. https://doi.org/10.1017/gmb.2023.14 
+
+Oulas, A., Pavloudi, C., Polymenakou, P., Pavlopoulos, G. A., Papanikolaou, N., Kotoulas, G., Arvanitidis, C., & Iliopoulos, I. (2015). Metagenomics: Tools and Insights for Analyzing Next-Generation Sequencing Data Derived from Biodiversity Studies. Bioinformatics and Biology Insights, 9, 75–88. https://doi.org/10.4137/BBI.S12462 
+
+Rodrigues, V. F., Elias-Oliveira, J., Pereira, Í. S., Pereira, J. A., Barbosa, S. C., Machado, M. S. G., & Carlos, D. (2022). Akkermansia muciniphila and Gut Immune System: A Good Friendship That Attenuates Inflammatory Bowel Disease, Obesity, and Diabetes. Frontiers in Immunology, 13, 934695. https://doi.org/10.3389/fimmu.2022.934695 
+
+Sakkas, H., Bozidis, P., Touzios, C., Kolios, D., Athanasiou, G., Athanasopoulou, E., Gerou, I., & Gartzonika, C. (2020). Nutritional Status and the Influence of the Vegan Diet on the Gut Microbiota and Human Health. Medicina, 56(2), 88. https://doi.org/10.3390/medicina56020088 
+
+Squillario, M., Bonaretti, C., La Valle, A., Di Marco, E., Piccolo, G., Minuto, N., Patti, G., Napoli, F., Bassi, M., Maghnie, M., d’Annunzio, G., & Biassoni, R. (2023). Gut-microbiota in children and adolescents with obesity: Inferred functional analysis and machine-learning algorithms to classify microorganisms. Scientific Reports, 13, 11294. https://doi.org/10.1038/s41598-023-36533-2 
+
+Wang, H., Wu, Z., Zuo, Y., Yan, X., Zou, B., Chen, Y., Yuan, Z., & Du, Z. (2025). Phenomics, RNA sequencing and weighted gene co-expression network analysis reveals key regulatory networks and genes involved in the determination of seed hardness in vicia sativa. BMC Genomics, 26, 950. https://doi.org/10.1186/s12864-025-12138-z 
+
+Wood, D. E., Lu, J., & Langmead, B. (2019). Improved metagenomic analysis with Kraken 2. Genome Biology, 20(1), 257. https://doi.org/10.1186/s13059-019-1891-0 
+
+Zang, X., Xiao, M., Yu, L., Chen, Y., Duan, H., Zhang, C., Zhao, J., Narbad, A., Chen, W., Tian, F., & Zhai, Q. (2024). Prevotella copri—A potential next-generation probiotic. Food Frontiers, 5(4), 1391–1409. https://doi.org/10.1002/fft2.417 
