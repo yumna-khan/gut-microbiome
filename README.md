@@ -8,8 +8,8 @@ This project examines differences in gut microbiome composition between vegan an
 - [Methods](#methods)
   - [1. Data Description](#1-data-description)
   - [2. Quality Control](#2-quality-control)
-  - [3. Taxanomic Classification](#3-taxaonmic-classification)
-  - [4. Taxanomic Abundance](#4-taxanomic-abundance)
+  - [3. Taxonomic Classification](#3-taxonomic-classification)
+  - [4. Taxonomic Abundance](#4-taxonomic-abundance)
   - [5. Alpha Diversity](#5-alpha-diversity)
   - [6. Beta Diversity](#6-beta-diversity)
   - [7. Differential Abundance](#7-differential-abundance)
@@ -49,7 +49,7 @@ Data retrieval was performed on a high-performance computing (HPC) system using 
 ### 2. Quality Control
 Raw paired-end Illumina reads were quality controlled and adapter-trimmed using fastp (v1.0.1) (Chen et al., 2018), which performs quality assessment and filtering in a single step. Adapter sequences for paired-end reads were automatically detected using the `--detect_adapter_for_pe option`. Bases with a Phred quality score below Q20 were removed, corresponding to a base call accuracy of 99%, and reads shorter than 50 bp after trimming were discarded (Wang et al., 2025). Filtered reads were stored in a dedicated directory, with log files and HTML reports saved separately for record-keeping.
 
-### 3. Taxanomic Classification
+### 3. Taxonomic Classification
 Taxonomic composition of each sample was determined using Kraken2 (v2.1.6) (Wood et al., 2019), a k-mer–based classifier that assigns reads to taxa with high precision. To provide a database for classification, the Kraken2 standard database (8 Gb, 2023-10-09) was downloaded and extracted:
 
 ```wget https://genome-idx.s3.amazonaws.com/kraken/k2_standard_08gb_20231009.tar.gz```
@@ -62,7 +62,7 @@ Moreover, to improve species-level abundance estimates, particularly for _Prevot
 
 The resulting Bracken reports were then imported directly into R for downstream analysis; conversion to BIOM format was not required.
 
-### 4. Taxanomic Abundance
+### 4. Taxonomic Abundance
 Taxonomic abundance was visualized in R (v4.5.2) using the `phyloseq` and `ggplot2` packages. Relative abundance was calculated by normalizing read counts per sample, and the top 10 most abundant species were visualized as stacked bar charts to summarize community composition across vegan and omnivore samples.
 
 ### 5. Alpha Diversity
@@ -82,7 +82,7 @@ The majority of reads passed filtering in all samples, with pass rates ranging f
 
 Notably, SRR8146973 had substantially fewer total reads (14.7 million) compared to the other samples (60–91 million), although its high Q20 rate (95.71%) indicates that read quality remained sufficient. Overall, all samples demonstrated adequate quality for downstream taxonomic classification.
 
-### Taxanomic Abundance
+### Taxonomic Abundance
 ![Figure 1](figures/abundance.png)
 
 **Figure 1:** Stacked bar chart showing the relative abundance of the top 10 most abundant species across omnivore and vegan gut microbiome samples. Samples are labelled by dietary group and SRA accession number.
@@ -129,7 +129,7 @@ Notably, _Segatella copri_ was not among the top 20 differentially abundant spec
 
 
 ## Discussion
-### Taxanomic Abundance
+### Taxonomic Abundance
 [Figure 1](figures/abundance.png) shows that _Segatella copri_ (formerly _Prevotella copri_) was abundant in one omnivore (SRR8146936) and one vegan sample (SRR8146968), while largely absent in the remaining samples. This pattern does not support the initial hypothesis that _S. copri_ would be enriched in vegans due to its association with plant-rich diets (De Filippis et al., 2019). Its inconsistent distribution suggests strong inter-individual variability rather than a clear diet-driven effect, consistent with evidence that _S. copri_ exhibits strain-level diversity with context-dependent metabolic effects (De Filippis et al., 2019). While it can metabolize dietary fibre into short-chain fatty acids (SCFAs) with potential metabolic benefits (Zang et al., 2024), it has also been associated with adverse metabolic outcomes including increased fasting glucose and inflammatory markers in animal models (Gong et al., 2024). This highlights its complex and controversial role in host health, and suggests that strain-level rather than species-level analysis may be necessary to resolve its true dietary and metabolic associations.
 
 In contrast, _Akkermansia muciniphila_ dominated one vegan sample (SRR8146963), while being largely absent in the remaining samples. This species is widely associated with beneficial metabolic effects including improved gut barrier function and reduced inflammation, and is inversely correlated with obesity and metabolic disorders (Rodrigues et al., 2022; Sakkas et al., 2020). Its high abundance in a vegan sample is biologically plausible as fibre- and polyphenol-rich diets promote microbial communities associated with metabolic health (Sakkas et al., 2020). However, its absence in the remaining vegan samples highlights considerable inter-individual variation within the same dietary group, likely driven by host-specific factors such as genetics and prior antibiotic use in addition to diet (Rodrigues et al., 2022).
