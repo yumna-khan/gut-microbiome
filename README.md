@@ -75,8 +75,49 @@ Differences in community composition between dietary groups were assessed using 
 Differential abundance between vegans and omnivores was evaluated using ANCOM-BC2 (v1.0), which accounts for compositional bias, sampling fraction differences, and structural zeros (Lin & Peddada, 2020; Nearing et al., 2022). Benjamini-Hochberg correction was applied for multiple testing (`p_adj_method = "BH"`), as it controls the false discovery rate and is more appropriate than the more conservative Holm correction when testing many species simultaneously with limited sample sizes. In addition, structural zeros detection was enabled (`struc_zero = TRUE, neg_lb = TRUE`) to identify taxa entirely absent from one dietary group, which is particularly relevant for diet-specific _Prevotella_ species.
 
 ## Results
+### Quality Control
+Raw paired-end reads were quality controlled and adapter-trimmed using fastp. Pre-filtering Q20 rates ranged from 91.84% to 96.00% across all samples, indicating high-quality input data. Following filtering, Q20 rates increased to 93.12–96.56%, confirming the effective removal of low-quality bases.
 
+The majority of reads passed filtering in all samples, with pass rates ranging from 95.7% (SRR8146968) to 98.2% (SRR8146973). The proportion of reads removed due to low quality was low (1.7– 4.2%), and reads discarded for being shorter than 50 bp after trimming were minimal across all samples (<0.12%). Adapter sequences were detected and removed in all samples, with adapter-trimmed reads ranging from 167,934 (SRR8146973) to 2,033,938 (SRR8146963).
 
+Notably, SRR8146973 had substantially fewer total reads (14.7 million) compared to the other samples (60–91 million), although its high Q20 rate (95.71%) indicates that read quality remained sufficient. Overall, all samples demonstrated adequate quality for downstream taxonomic classification.
+
+### Taxanomic Abundance
+**Figure 1:** Stacked bar chart showing the relative abundance of the top 10 most abundant species across omnivore and vegan gut microbiome samples. Samples are labelled by dietary group and SRA accession number.
+
+Figure 1 displays the relative abundance of the top 10 most abundant species across vegan and omnivore gut microbiome samples. Overall, both dietary groups exhibited diverse microbial communities, with several dominant species shared across samples, including _Faecalibacterium prausnitzii_, _Bacteroides uniformis_, and _Phocaeicola vulgatus_. However, notable differences in species dominance and relative abundance patterns were observed between dietary groups.
+
+Among vegan samples, there was greater variability in dominant taxa across individuals. In sample SRR8146963, _Akkermansia muciniphila_ and _Bacteroides uniformis_ were among the most abundant species, alongside relatively even contributions from _Alistipes communis_, _Faecalibacterium prausnitzii_, _Phocaeicola dorei_, and _Phocaeicola vulgatus_. Sample SRR8146968 was dominated by _Segatella copri_, with substantial contributions from _Parabacteroides merdae_ and _Bacteroides uniformis_. In contrast, SRR8146973 showed a simpler profile, with Bacteroides uniformis as the dominant species followed by Faecalibacterium prausnitzii. Notably, the presence and dominance of _Segatella copri_ in one vegan sample highlights potential enrichment of _Prevotella_-associated taxa in plant-based diets.
+
+Omnivore samples displayed more consistent dominance patterns across individuals. _Faecalibacterium prausnitzii_ was the most abundant species in two of the three samples (SRR8146935 and SRR8146938), while _Segatella copri_ dominated SRR8146936. Species such as _Alistipes onderdonkii_ and _Phocaeicola vulgatus_ were consistently present at moderate to high relative abundances across all omnivore samples. Compared to vegan samples, omnivore microbiomes appeared to have less variability in dominant taxa but maintained a similar core set of abundant species.
+
+Overall, while both dietary groups shared key commensal species, vegans exhibited greater inter-individual variability and occasional dominance of _Segatella copri_, whereas omnivore samples were more consistently dominated by _Faecalibacterium prausnitzii_ and _Alistipes onderdonkii_. These patterns suggest potential diet-associated differences in microbial composition, particularly in relation to _Prevotella_-related taxa.
+
+### Alpha Diversity
+Figure 2: Boxplots of alpha diversity metrics (Observed features and Shannon index) for omnivore and vegan gut microbiome samples. Points represent individual samples. No statistically significant differences were observed between dietary groups (Wilcoxon rank-sum test, p > 0.05).
+
+Alpha diversity metrics are shown in Figure 2. Omnivore samples exhibited a higher median observed species richness (median = 134, range = 103–152) compared to vegan samples (median = 118, range = 110–122), suggesting a greater number of distinct species in omnivore gut microbiomes. Omnivores also displayed greater variability in observed richness, spanning a wider range than vegans.
+
+Shannon index values were similar between groups (omnivores: median = 3.05, range = 2.62–3.42; vegans: median = 3.03, range = 3.01–3.32), although omnivores again showed greater variability, indicating more variation in community evenness compared to the relatively consistent vegan samples.
+
+Moreover, individual sample points are overlaid on the boxplots to show the true distribution of the data, which is particularly important given the small sample size (n = 3 per group). With so few samples, boxplots alone can be misleading, as summary statistics may be driven by a single value. In this case, each group contains one sample at the minimum, median, and maximum values, indicating that the observed spread reflects the full distribution of the limited data rather than the influence of outliers.
+However, neither metric differed significantly between dietary groups (Observed features: W = 6, p = 0.7; Shannon: W = 5, p = 1.0; Wilcoxon rank-sum test). This lack of significance is likely due to the small sample size (n = 3 per group), which limits statistical power.
+
+### Beta Diversity
+Figure 3: Principal Coordinates Analysis (PCoA) of Bray-Curtis dissimilarity between omnivore (salmon) and vegan (blue) gut microbiome samples. PC1 and PC2 explain 48.3% and 23.6% of total variation respectively. PERMANOVA: R² = 0.25, p = 0.4.
+
+PCoA of Bray–Curtis dissimilarity revealed a visual separation between omnivore and vegan samples, with omnivore samples clustering in the upper portion of the plot and vegan samples in the lower portion along PC2 (Figure 3). PC1 explained 48.3% of the total variation and PC2 explained 23.6%, together accounting for 71.9% of the variation.
+
+Despite this apparent separation, PERMANOVA indicated that diet explained 25% of the variation in microbial community composition (R² = 0.25, F = 1.34, p = 0.4), which was not statistically significant. The limited number of permutations achievable with only six samples (719 of the requested 999) further reflects the constraint imposed by the small sample size on statistical inference.
+
+### Differential Abundance
+Figure 4: Bar chart of the top 20 species by lowest p-value from ANCOM-BC2 differential abundance analysis comparing omnivore and vegan gut microbiomes. Log fold change values are shown relative to vegan samples. Green bars indicate species higher in vegans, red bars indicate species higher in omnivores. No species reached statistical significance after Benjamini-Hochberg correction (n = 3 per group).
+
+Differential abundance analysis using ANCOM-BC2 identified no statistically significant species after Benjamini–Hochberg correction, consistent with the limited statistical power associated with the small sample size. The top 20 species ranked by lowest p-values are shown in Figure 4.
+
+Several species exhibited higher log fold changes in vegan samples, including _Sutterella wadsworthensis_, _Ruminococcus bicirculans_, _Butyrivibrio crossotus_, and multiple _Alistipes_ species. Conversely, _Coprococcus eutactus_, _[Ruminococcus] lactaris_, and A_listipes onderdonkii_ showed higher log fold changes in omnivore samples.
+
+Notably, _Segatella copri_ was not among the top 20 differentially abundant species, suggesting that although it appeared visually prominent in some samples, its abundance differences between dietary groups were not consistent enough to meet the threshold for inclusion after filtering and statistical testing.
 
 
 ## Discussion
