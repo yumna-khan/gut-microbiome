@@ -8,10 +8,11 @@ This project examines differences in gut microbiome composition between vegan an
 - [Methods](#methods)
   - [1. Data Description](#1-data-description)
   - [2. Quality Control](#2-quality-control)
-  - [3. Genome Assembly](#3-genome-assembly)
-  - [4. Alignment](#4-alignment)
-  - [5. Variant Calling](#5-variant-calling)
-  - [6. Visualization](#6-visualization)
+  - [3. Taxanomic Classification](#3-taxaonmic-classification)
+  - [4. Taxanomic Abundance](#4-taxanomic-abundance)
+  - [5. Alpha Diversity](#5-alpha-diversity)
+  - [6. Beta Diversity](#6-beta-diversity)
+  - [7. Differential Abundance](#7-differential-abundance)
 - [Results](#results)
 - [Discussion](#discussion)
 - [References](#references)
@@ -33,16 +34,17 @@ Overall, this study aims to characterize and compare the gut microbiome composit
 ### 1. Data Description
 
 
-### 2. 
+### 2. Quality Control
 
-### 3. 
+### 3. Taxanomic Classification
 
-### 4. 
+### 4. Taxanomic Abundance
 
-### 5. 
+### 5. Alpha Diversity
 
-### 6. Visualization
+### 6. Beta Diversity
 
+### 7. Differnetial Abundance
 
 ## Results
 
